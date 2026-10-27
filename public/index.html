@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Bhaai PDFs — Keep the PDFs coming</title><meta name="description" content="Support Bhaai PDFs with a contribution from ₹10. Help reach our ₹400 subscription renewal goal and keep student study resources coming."><link rel="icon" href="logo.jpeg"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="support.css"><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script><script src="https://checkout.razorpay.com/v1/checkout.js" defer></script><script src="app.js" defer></script></head><body>
+<a class="skip" href="#content">Skip to content</a><div class="bg-orb orb-1"></div><div class="bg-orb orb-2"></div><div class="bg-orb orb-3"></div><div class="noise"></div>
+<header class="header"><div class="header-inner"><a class="logo" href="#home"><div class="logo-mark"><img src="logo.jpeg" alt="Bhaai PDFs red handprint" class="logo-img"></div><span>Bhaai pdfs</span></a><nav aria-label="Main navigation"><a href="#home">Home</a><a href="#payments">Payments</a><a href="#reviews">Reviews</a></nav></div></header>
+<div class="mode-banner" id="modeBanner" role="status">Connecting to campaign…</div>
+<div id="content" tabindex="-1"><section id="homePage" class="page">
+<section class="hero"><div class="hero-eyebrow"><span class="eyebrow-dot"></span>By students. For students.</div><h1 class="hero-title">Keep the PDFs<br><em>coming, bhaai.</em></h1><p class="hero-sub">A little support today. More study resources for the semesters ahead.</p><div class="deadline">Subscription ends <strong>04 November 2026</strong></div></section>
+<main class="support-grid"><article class="card story"><div class="card-label"><span>01</span> The next chapter</div><h2 class="card-title">Let’s take Bhaai PDFs<br>through 4-2.</h2><p>We’ve been sharing academic study PDFs and listening to your feedback to make the next resource more useful.</p><p>Our ChatGPT Go subscription ends on <strong>4 November 2026</strong>. We’re raising <strong>₹400 towards its renewal</strong> to support continued preparation and sharing of PDFs through the 4-2 semester.</p><div class="story-note"><span>₹10</span><p>is enough to join in.<br>Give more only if you’re comfortable.</p></div><p class="fine">Contributions are voluntary. This is an independent student initiative, with no affiliation to OpenAI.</p></article>
+<article class="card donate-card"><div class="card-label"><span>02</span> Make it happen</div><div class="fund-top"><h2 class="card-title">One small goal.</h2><span class="target-pill">₹400 target</span></div><div class="raised"><strong id="raised">—</strong><span>of ₹400 raised</span></div><div class="progress" id="progress" role="progressbar" aria-label="Fundraising progress" aria-valuemin="0" aria-valuemax="400" aria-valuenow="0"><div id="progressFill"></div></div><div class="progress-meta"><span id="supporterCount">Loading contributions…</span><span id="progressPercent">—</span></div><p id="campaignStatus" role="status"></p>
+<form id="donationForm"><label for="donorName">Your display name</label><input id="donorName" name="name" required maxlength="60" placeholder="How should we thank you?" autocomplete="name"><p class="fine">Your display name and amount will appear on the Payments page.</p><label>Choose your contribution</label><div class="amounts" role="group" aria-label="Suggested contribution amounts"><button type="button" data-amount="10" aria-pressed="true">₹10</button><button type="button" data-amount="20" aria-pressed="false">₹20</button><button type="button" data-amount="30" aria-pressed="false">₹30</button><button type="button" data-amount="40" aria-pressed="false">₹40</button><button type="button" data-amount="50" aria-pressed="false">₹50</button></div><label for="amount">Or enter an amount in rupees</label><input id="amount" name="amount" type="number" min="10" max="1000000" step="0.01" value="10" required><div class="fine">Minimum ₹10 · One-time contribution</div><button class="submit-btn" id="donateBtn" type="submit"><span>Contribute ₹10</span><span aria-hidden="true">↗</span></button><p class="fine checkout-note">Checkout powered by Razorpay</p><p id="donationMessage" role="status"></p></form></article></main>
+<section class="work-section"><div class="section-divider"><div class="divider-line"></div><div class="divider-label">Already part of the journey</div><div class="divider-line"></div></div><div class="work-inner"><div class="reviews-eyebrow">03 — Our work so far</div><h2 class="reviews-title">Study. Share. Improve.</h2><div class="work-grid"><article><span class="work-number">01 / RESOURCES</span><h3>Academic study PDFs</h3><p>Bhaai PDFs shares study material to support students with their academic preparation.</p></article><article><span class="work-number">02 / COMMUNITY</span><h3>Your voice shapes it</h3><p>Our feedback portal collects star ratings and written experiences so future resources can improve.</p><a href="https://lokeshkodamanchili.github.io/feedback-site/" target="_blank" rel="noopener">Visit the original feedback portal ↗</a></article><article><span class="work-number">03 / WHAT’S NEXT</span><h3>Looking ahead to 4-2</h3><p>This collection supports subscription renewal as we aim to continue preparing and sharing PDFs through the 4-2 semester.</p><a href="#reviews">Share your experience ↗</a></article></div><p class="fine">₹400 is this campaign’s collection goal. Renewal supports our tools; it is not a purchase of guaranteed PDFs or a tax-deductible charitable donation.</p></div></section></section>
+<section id="paymentsPage" class="page" hidden><div class="hero"><div class="hero-eyebrow"><span class="eyebrow-dot"></span>The people behind the progress</div><h1 class="hero-title">Every bit <em>counts.</em></h1><p class="hero-sub">A thank-you to everyone helping the next chapter happen.</p></div><div class="payments-wrap card"><div class="fund-top"><h2 class="card-title">Payments</h2><button id="refreshPayments" class="text-btn">Refresh ↻</button></div><p class="fine">Latest 100 verified contributions. Refunded amounts are deducted from progress. Test entries appear only in Test Mode.</p><div id="paymentsList" class="payments-list" aria-live="polite">Loading contributions…</div></div></section>
+<section id="reviewsPage" class="page" hidden><div class="hero"><div class="hero-eyebrow"><span class="eyebrow-dot"></span>Share your experience</div><h1 class="hero-title">Are the PDFs <em>helping?</em></h1><p class="hero-sub">Tell us what works and what could be better. Your feedback helps shape the next resource.</p></div>  <!-- MAIN GRID — Form + Chart only -->
+  <main class="grid">
+
+    <!-- FORM CARD -->
+    <div class="card card--form">
+      <div class="card-label"><span>01</span> Write</div>
+      <h2 class="card-title">Leave feedback</h2>
+
+      <div class="field">
+        <input type="text" id="name" maxlength="60" aria-label="Your name, optional" placeholder="Your name (optional)" autocomplete="off" />
+      </div>
+
+      <div class="field star-field">
+        <div class="star-row" id="starRow">
+          <button class="star-btn" data-v="1" aria-label="1 star">★</button>
+          <button class="star-btn" data-v="2" aria-label="2 stars">★</button>
+          <button class="star-btn" data-v="3" aria-label="3 stars">★</button>
+          <button class="star-btn" data-v="4" aria-label="4 stars">★</button>
+          <button class="star-btn" data-v="5" aria-label="5 stars">★</button>
+        </div>
+        <span class="star-hint" id="starHint">Select a rating</span>
+      </div>
+
+      <div class="field">
+        <textarea id="feedback" maxlength="500" aria-label="Your feedback" placeholder="Describe your experience in detail..."></textarea>
+        <div class="char-count" id="charCount">0 / 500</div>
+      </div>
+
+      <button class="submit-btn" id="submitBtn" >
+        <span>Send Feedback</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <div class="toast" id="toast" role="status"></div>
+    </div>
+
+    <!-- CHART CARD -->
+    <div class="card card--chart">
+      <div class="card-label"><span>02</span> Insights</div>
+      <h2 class="card-title">Rating breakdown</h2>
+
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-num" id="avgStat">—</div>
+          <div class="stat-lbl">Average</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-box">
+          <div class="stat-num" id="totalStat">0</div>
+          <div class="stat-lbl">Reviews</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-box">
+          <div class="stat-num" id="topStat">—</div>
+          <div class="stat-lbl">Most given</div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════
+       ALL REVIEWS — SEPARATE FULL SECTION
+       ═══════════════════════════════════════════ -->
+  <section class="reviews-section">
+
+    <!-- Section divider -->
+    <div class="section-divider">
+      <div class="divider-line"></div>
+      <div class="divider-label">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+          <path d="M8 1L10 6H15.5L11 9.5L13 15L8 11.5L3 15L5 9.5L0.5 6H6L8 1Z" fill="currentColor"/>
+        </svg>
+        Community
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="reviews-inner">
+
+      <!-- Section hero -->
+      <div class="reviews-hero">
+        <div class="reviews-hero-text">
+          <div class="reviews-eyebrow">
+            <span class="eyebrow-dot"></span>
+            03 — All Reviews
+          </div>
+          <h2 class="reviews-title">What people are saying</h2>
+          <p class="reviews-sub">Real feedback from real users. Honest and unfiltered.</p>
+        </div>
+        <div class="count-badge" id="countBadge">0</div>
+      </div>
+
+      <!-- Reviews grid -->
+      <div class="reviews-grid" id="feedbackList">
+        <div class="loader-wrap">
+          <div class="spinner"></div>
+          <span>Loading reviews…</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</section></div><footer class="footer"><span>Bhaai PDFs</span><span>·</span><span>Built with care</span><a href="#policies">Contribution & privacy information</a></footer><section id="policiesPage" class="page policy-wrap" hidden><article class="card"><h1 class="card-title">Contribution & privacy information</h1><h2>Purpose and terms</h2><p>Voluntary contributions support the creator’s ChatGPT Go subscription renewal, with a ₹400 fundraising goal. They do not buy a product, guarantee resource delivery, or provide a charitable tax receipt. Progress shows verified contributions less recorded refunds, before payment processing fees. Contributions above the goal support the same stated purpose; the progress bar stops at 100% and the actual total remains visible.</p><h2>Privacy</h2><p>Your chosen display name, contribution amount and date are public on Payments. Use “Anonymous” as your display name if preferred. Razorpay processes payment information; this site stores payment references for verification and does not store card, UPI or bank credentials. Reviews, names and ratings are public. Please avoid including sensitive personal information.</p><h2>Payment issues and refunds</h2><p>If a payment is debited but not listed, keep your Razorpay payment reference and contact the organiser through the project’s GitHub issues. Do not post bank details or payment credentials publicly. Refund requests are reviewed by the organiser; an approved refund is processed through Razorpay. No automatic refund is promised.</p><h2>Contact</h2><p>Organiser: Lokesh Kodamanchili. <a href="https://github.com/lokeshkodamanchili/bhaai-pdfs-support/issues" target="_blank" rel="noopener">Contact through the project’s GitHub issues ↗</a></p></article></section><noscript><p class="hero-sub">JavaScript is required to load progress, reviews and checkout.</p></noscript></body></html>
