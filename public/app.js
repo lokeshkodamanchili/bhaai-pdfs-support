@@ -1,6 +1,6 @@
 const $ = id => document.getElementById(id);
 let rating=0, chart, reviewLoaded=false, checkoutOpen=false;
-const money=paise=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format(paise/100);
+const money=paise=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',minimumFractionDigits:0,maximumFractionDigits:2}).format(paise/100);
 async function api(path,data){
   const response=await fetch(`/api/${path}`,{method:data?'POST':'GET',headers:data?{'Content-Type':'application/json'}:{},body:data?JSON.stringify(data):undefined});
   const result=await response.json();if(!response.ok)throw new Error(result.error || 'Request failed. Please try again.');return result;
@@ -37,10 +37,11 @@ $('donationForm').addEventListener('submit',async e=>{
  e.preventDefault();if(checkoutOpen)return;const button=$('donateBtn');button.disabled=true;message('donationMessage','Preparing your checkout…');
  try {
  if(!window.Razorpay)throw new Error('Checkout could not load. Check your connection and refresh.');
- const order=await api('create-order',{name:$('donorName').value.trim(),amount:$('amount').value});checkoutOpen=true;
+ const order=await api('create-order',{name:$('donorName').value.trim(),amount:Math.round(Number($('amount').value)*100),currency:'INR'});checkoutOpen=true;
  const checkout=new Razorpay({key:order.key,amount:order.amount,currency:order.currency,order_id:order.order_id,name:'Bhaai PDFs',description:'Study PDFs · Subscription renewal support',image:location.origin+'/logo.jpeg',prefill:{name:$('donorName').value.trim()},theme:{color:'#ff6b35'},modal:{ondismiss(){checkoutOpen=false;button.disabled=false;message('donationMessage','Checkout closed. If you paid, verification may take a moment; check Payments before trying again.');}},handler:async response=>{
  checkoutOpen=false;
- try{const result=await api('verify-payment',response);message('donationMessage',result.captured?'Thank you! Your verified contribution is listed on Payments.':'Payment received by checkout; capture is pending. Your entry will appear after verification.');await loadCampaign();}
+ try{const result=await api('verify-payment',response);if(result.captured){$('amount').value='10';updateAmount();}
+   message('donationMessage',result.captured?'Thank you! Your verified contribution is listed on Payments.':'Payment received by checkout; capture is pending. Your entry will appear after verification.');await loadCampaign();}
  catch{message('donationMessage','Verification is pending. Keep your payment reference and check Payments shortly before trying again.',true);}finally{button.disabled=false;}
  }});
  checkout.on('payment.failed',()=>{message('donationMessage','Payment attempt failed. You can retry in checkout or close it.',true);});checkout.open();message('donationMessage','Complete your contribution in the Razorpay checkout.');

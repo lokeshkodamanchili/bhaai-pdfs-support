@@ -4,7 +4,7 @@ create table public.donations (
   order_id text primary key,
   payment_id text unique,
   display_name text not null check(char_length(display_name) between 1 and 60),
-  amount_paise bigint not null check(amount_paise between 1000 and 100000000),
+  amount_paise bigint not null check(amount_paise between 100 and 100000000),
   refunded_paise bigint not null default 0 check(refunded_paise >= 0 and refunded_paise <= amount_paise),
   status text not null default 'pending' check(status in ('pending','captured')),
   mode text not null check(mode in ('test','live')),
